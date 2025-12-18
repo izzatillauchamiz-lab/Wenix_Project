@@ -1,0 +1,11 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<div class="card">
+  <h2>Buyurtma qabul qilindi</h2>
+  {% if name and surname and phone %}
+    <div>Ismingiz: <strong>{{ name }}</strong></div>
+    <div>Familiyangiz: <strong>{{ surname }}</strong></div>
+    <div>Telefon raqam: <strong>{{ phone }}</strong></div>
+  {% endif %}
+</div>
+{% endblock %}

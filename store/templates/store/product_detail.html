@@ -1,0 +1,22 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<div class="product-wrap">
+  <div class="card left">
+    {% if p.image %}
+      <img src="{{ p.image.url }}" class="product-img-large">
+    {% else %}
+      <div class="product-img-large">No image</div>
+    {% endif %}
+  </div>
+  <div class="card right">
+    <h2>{{ p.title }}</h2>
+    <div class="muted">{{ p.category }}</div>
+    <p>{{ p.description }}</p>
+    <div class="price"><strong>{{ p.price }} USD</strong></div>
+    <form method="post">{% csrf_token %}
+      <input class="input" name="qty" value="1">
+      <button class="btn btn-yellow" type="submit">Savatga qo'shish</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

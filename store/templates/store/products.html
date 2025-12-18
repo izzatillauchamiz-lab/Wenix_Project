@@ -1,0 +1,22 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<h2>Mahsulotlar</h2>
+<div class="product-grid">
+  {% for it in items %}
+  <div class="card" style="position:relative;">
+    {% if it.is_new %}
+      <span style="position:absolute;top:10px;right:10px;background:#ff0;color:#222;padding:3px 10px;border-radius:12px;font-weight:bold;box-shadow:0 2px 6px #ccc;">NEW</span>
+    {% endif %}
+    {% if it.image %}
+      <img src="{{ it.image.url }}" class="product-img">
+    {% else %}
+      <div class="product-img">No image</div>
+    {% endif %}
+    <h3 style="margin-top:10px;">{{ it.title }}</h3>
+    <p class="price" style="font-size:1.1em;font-weight:bold;">{{ it.price }} USD</p>
+    <p class="stock" style="color:#007b00;font-size:0.95em;">Stock: <strong>{{ it.stock }}</strong></p>
+    <a class="btn btn-yellow" href="{% url 'product_detail' it.id %}" style="margin-top:8px;">Batafsil</a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

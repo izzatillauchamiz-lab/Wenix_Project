@@ -1,0 +1,16 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<div class="auth-wrap">
+  <div class="auth-card">
+    <h2>Ro'yxatdan o'tish</h2>
+    {% if form.errors %}
+      <div class="error">Iltimos, barcha maydonlarni to'g'ri to'ldiring.</div>
+    {% endif %}
+    <form method="post">{% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-yellow" type="submit">Ro'yxatdan o'tish</button>
+    </form>
+    <p class="muted">Agar akkauntingiz bo'lsa <a href="/login/">kirish</a></p>
+  </div>
+</div>
+{% endblock %}

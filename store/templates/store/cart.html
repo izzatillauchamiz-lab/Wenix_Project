@@ -1,0 +1,27 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<h2>Savat</h2>
+<div class="card">
+  {% if not items %}<div class="muted">Savat bo'sh</div>{% endif %}
+  {% for it in items %}
+  <div class="cart-row">
+    <div>
+      <strong>{{ it.p.title }}</strong>
+      <div class="muted">{{ it.qty }} × {{ it.p.price }}</div>
+      {% if it.ordered %}
+        <span class="badge" style="color:green">buyurtma berilgan</span>
+      {% endif %}
+    </div>
+    <div>
+      <span>{{ it.sum }}</span>
+      <a class="btn" href="?remove={{ it.p.id }}">O'chirish</a>
+    </div>
+  </div>
+  {% endfor %}
+  {% if items %}
+  <hr>
+  <div class="muted">Jami: {{ total }} USD</div>
+  <a class="btn btn-yellow" href="{% url 'checkout' %}">Buyurtma berish</a>
+  {% endif %}
+</div>
+{% endblock %}

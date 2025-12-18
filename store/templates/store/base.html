@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+{% load static %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>wenix</title>
+<link rel="stylesheet" href="{% static 'store/css/styles.css' %}">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><a href="/" style="text-decoration:none;color:inherit;">wenix</a></div>
+  <form class="search" action="{% url 'search' %}" method="get">
+    <input name="q" placeholder="Qidirish..." class="search-input">
+    <button class="search-btn" type="submit">Q</button>
+  </form>
+  <nav>
+    <a href="/">Asosiy</a>
+    <a href="/products/">Mahsulotlar</a>
+    <a href="/cart/">Savat</a>
+    {% if user.is_authenticated %}
+      <span class="muted">Salom, {{ user.username }}</span>
+      <a href="/admin/">Admin</a>
+      <a href="/logout/">Chiqish</a>
+    {% else %}
+      <a href="/login/">Kirish</a>
+      <a href="/register/">Ro‘yhatdan</a>
+    {% endif %}
+  </nav>
+</header>
+<main class="container">
+  {% block content %}{% endblock %}
+</main>
+<footer class="footer">© 2025 wenix</footer>
+</body>
+</html>

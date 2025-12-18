@@ -1,0 +1,17 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<div class="auth-wrap">
+  <div class="auth-card">
+    <h2>Kirish</h2>
+    {% if error %}<div class="error">{{ error }}</div>{% endif %}
+    <form method="post">{% csrf_token %}
+      <label for="username">Username</label>
+      <input class="input" id="username" name="username" placeholder="Username" autocomplete="username">
+      <label for="password">Password</label>
+      <input class="input" id="password" name="password" placeholder="Password" type="password" autocomplete="current-password">
+      <button class="btn btn-yellow" type="submit">Kirish</button>
+    </form>
+    <p class="muted">Yangi foydalanuvchi? <a href="/register/">Ro'yxatdan o'tish</a></p>
+  </div>
+</div>
+{% endblock %}

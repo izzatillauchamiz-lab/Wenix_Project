@@ -1,0 +1,19 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<h2>Qidiruv: "{{ q }}"</h2>
+<div class="product-grid">
+  {% for it in results %}
+  <div class="card">
+    {% if it.image %}
+      <img src="{{ it.image.url }}" class="product-img">
+    {% else %}
+      <div class="product-img">No image</div>
+    {% endif %}
+    <h3>{{ it.title }}</h3>
+    <p class="price">{{ it.price }} USD</p>
+    <a class="btn btn-yellow" href="{% url 'product_detail' it.id %}">Batafsil</a>
+  </div>
+  {% endfor %}
+  {% if not results %}<div class="muted">Natija topilmadi</div>{% endif %}
+</div>
+{% endblock %}
