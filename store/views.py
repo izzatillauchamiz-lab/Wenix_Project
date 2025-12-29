@@ -148,6 +148,8 @@ def checkout_view(request):
             requests.post(api_url, json=payload, timeout=5)
         except Exception:
             pass
+        # Clear the cart after successful order
+        request.session["cart"] = {}
         request.session.modified = True
         return render(request, "store/thanks.html", {"order": order, "name": name, "surname": surname, "phone": phone})
     return render(request, "store/checkout.html")

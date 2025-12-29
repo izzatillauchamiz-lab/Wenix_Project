@@ -15,7 +15,10 @@ class OrderItemInline(admin.TabularInline):
     readonly_fields = ("product", "qty", "price")
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ("id", "user", "name", "surname", "phone", "total", "created_at")
+    def order_summary(self, obj):
+        return ", ".join([f"{item.product} (x{item.qty})" for item in obj.items.all()])
+    order_summary.short_description = "Ordered Products"
+    list_display = ("id", "user", "name", "surname", "phone", "order_summary", "total", "created_at")
     list_filter = ("created_at",)
     search_fields = ("user__username", "name", "surname", "phone")
     inlines = [OrderItemInline]
