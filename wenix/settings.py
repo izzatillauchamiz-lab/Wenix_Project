@@ -4,7 +4,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "replace-this-with-a-secure-key"
 DEBUG = False
-ALLOWED_HOSTS = ["wenix.onrender.com"]  # safer than "*"
+ALLOWED_HOSTS = ["wenixshop.onrender.com"]  # safer than "*"
 
 INSTALLED_APPS = [
     "django.contrib.admin",
