@@ -5,13 +5,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "replace-this-with-a-secure-key"
 DEBUG = False
 ALLOWED_HOSTS = [
-    "wenix.onrender.com",
+    "wenixuz.onrender.com",
     ".onrender.com",
     "localhost",
     "127.0.0.1",
 ]
 CSRF_TRUSTED_ORIGINS = [
-    "https://wenix.onrender.com",
+    "https://wenixuz.onrender.com",
 ]
 
 
