@@ -71,7 +71,12 @@ USE_TZ = True
 
 # STATIC FILES
 STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"  # WhiteNoise will serve from here
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
+  # WhiteNoise will serve from here
 # Remove STATICFILES_DIRS if you want WhiteNoise to collect static from apps automatically
 # STATICFILES_DIRS = [BASE_DIR / "static"]
 
