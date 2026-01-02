@@ -71,16 +71,16 @@ USE_TZ = True
 
 # STATIC FILES
 STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_FINDERS = [
-    "django.contrib.staticfiles.finders.FileSystemFinder",
-    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
 ]
-  # WhiteNoise will serve from here
-# Remove STATICFILES_DIRS if you want WhiteNoise to collect static from apps automatically
-# STATICFILES_DIRS = [BASE_DIR / "static"]
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+WHITENOISE_USE_FINDERS = True
 
 # MEDIA FILES
 MEDIA_URL = "/media/"
